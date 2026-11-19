@@ -1,3 +1,5 @@
+<p align="center"><img src="art/icon.png" width="128" alt=""></p>
+
 # Neon Undelete
 
 Recovers deleted files and folders from **NTFS, FAT32/FAT16/FAT12 and exFAT** drives: PC disks, USB sticks, SD cards and camera cards. It reads the drive's file table directly, finds the entries marked as deleted, rebuilds where each one used to live, and copies the data out to a **different** drive.

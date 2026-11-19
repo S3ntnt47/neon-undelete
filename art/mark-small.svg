@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="40" y1="40" x2="216" y2="216"><stop offset="0" stop-color="#ff2a5f"/><stop offset=".5" stop-color="#e94fb4"/><stop offset="1" stop-color="#a85cff"/></linearGradient>
+    <radialGradient id="bgg" cx=".5" cy=".45" r=".75"><stop offset="0" stop-color="#2a1442"/><stop offset=".7" stop-color="#120c24"/><stop offset="1" stop-color="#0a0814"/></radialGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="a"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="b"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="13" result="c"/>
+      <feMerge><feMergeNode in="c"/><feMergeNode in="b"/><feMergeNode in="a"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <g filter="url(#glow)" stroke-width="24"><path d="M52,110 V160 Q52,214 106,214 H150 Q204,214 204,160 V110" stroke="url(#g)"/><path d="M92,32 H146 L168,54 V134 H92 Z" stroke="#1fe0c8"/></g>
+    <g stroke="#fff" stroke-width="5" opacity=".8"><path d="M52,110 V160 Q52,214 106,214 H150 Q204,214 204,160 V110"/><path d="M92,32 H146 L168,54 V134 H92 Z"/></g>
+  </g>
+</svg>
