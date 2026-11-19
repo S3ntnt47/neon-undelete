@@ -1,0 +1,13 @@
+# build output (rebuild with .\build.ps1; installers go on GitHub Releases)
+/*.exe
+/dist/
+/packaging/out/
+*.pdb
+
+# Microsoft packaging tools: downloaded from NuGet, not redistributed here (see README)
+/tools/sdk-buildtools/
+
+# local scratch
+*.log
+Thumbs.db
+desktop.ini

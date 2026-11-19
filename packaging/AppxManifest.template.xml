@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  MSIX manifest for Neon Undelete. package.ps1 fills the {{TOKENS}}.
+  The identity values must match Partner Center > your app > Product management > Product identity.
+-->
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+  xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
+  xmlns:desktop4="http://schemas.microsoft.com/appx/manifest/desktop/windows10/4"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap uap3 desktop desktop4 rescap">
+
+  <Identity
+    Name="{{IDENTITY_NAME}}"
+    Publisher="{{PUBLISHER}}"
+    Version="{{VERSION}}"
+    ProcessorArchitecture="x64" />
+
+  <Properties>
+    <DisplayName>Neon Undelete</DisplayName>
+    <PublisherDisplayName>{{PUBLISHER_DISPLAY_NAME}}</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+    <Description>Recover deleted files and folders from NTFS, FAT32 and exFAT drives.</Description>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.26100.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="en-us" />
+  </Resources>
+
+  <Applications>
+    <!-- the windowed app: Start menu entry -->
+    <Application Id="NeonUndelete" Executable="UndeleteGui.exe" EntryPoint="Windows.FullTrustApplication">
+      <uap:VisualElements
+        DisplayName="Neon Undelete"
+        Description="Recover deleted files and folders from NTFS, FAT32 and exFAT drives."
+        BackgroundColor="#0c0a17"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\Square310x310Logo.png" ShortName="Undelete">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo" />
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile>
+        <uap:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#0c0a17" />
+      </uap:VisualElements>
+    </Application>
+
+    <!-- terminal UI / CLI: no Start entry, reachable as "undelete" from any terminal -->
+    <Application Id="UndeleteCli" Executable="Undelete.exe" EntryPoint="Windows.FullTrustApplication"
+                 desktop4:Subsystem="console" desktop4:SupportsMultipleInstances="true">
+      <uap:VisualElements
+        DisplayName="Neon Undelete (terminal)"
+        Description="Terminal UI and command line for Neon Undelete."
+        BackgroundColor="#0c0a17"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png"
+        AppListEntry="none" />
+      <Extensions>
+        <uap3:Extension Category="windows.appExecutionAlias" Executable="Undelete.exe" EntryPoint="Windows.FullTrustApplication">
+          <uap3:AppExecutionAlias>
+            <desktop:ExecutionAlias Alias="undelete.exe" />
+          </uap3:AppExecutionAlias>
+        </uap3:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <!-- classic desktop (Win32) app -->
+    <rescap:Capability Name="runFullTrust" />
+    <!-- lets the app relaunch itself as administrator for raw disk reads (needs Store approval) -->
+    <rescap:Capability Name="allowElevation" />
+  </Capabilities>
+</Package>
