@@ -16,4 +16,4 @@ Neon Undelete is a file-recovery tool that runs entirely on your own computer.
 
 **Changes.** If this policy changes, the updated version will be published at this address with a new date.
 
-**Contact.** \<your support email\>
+**Contact.** Questions about this policy or the app: open an issue at https://github.com/S3ntnt47/neon-undelete/issues
