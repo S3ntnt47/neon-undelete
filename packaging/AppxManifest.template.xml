@@ -51,7 +51,8 @@
       </uap:VisualElements>
     </Application>
 
-    <!-- terminal UI / CLI: no Start entry, reachable as "undelete" from any terminal -->
+    <!-- terminal UI / CLI: its own Start entry (the Store rejects hidden "headless" apps without a waiver),
+         and reachable as "undelete" from any terminal -->
     <Application Id="UndeleteCli" Executable="Undelete.exe" EntryPoint="Windows.FullTrustApplication"
                  desktop4:Subsystem="console" desktop4:SupportsMultipleInstances="true">
       <uap:VisualElements
@@ -59,8 +60,7 @@
         Description="Terminal UI and command line for Neon Undelete."
         BackgroundColor="#0c0a17"
         Square150x150Logo="Assets\Square150x150Logo.png"
-        Square44x44Logo="Assets\Square44x44Logo.png"
-        AppListEntry="none" />
+        Square44x44Logo="Assets\Square44x44Logo.png" />
       <Extensions>
         <uap3:Extension Category="windows.appExecutionAlias" Executable="Undelete.exe" EntryPoint="Windows.FullTrustApplication">
           <uap3:AppExecutionAlias>
